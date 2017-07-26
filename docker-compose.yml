@@ -1,0 +1,36 @@
+version: '2'
+services:
+  haproxy:
+    image: haproxy:1.7
+    volumes:
+      - ./haproxy/config:/usr/local/etc/haproxy
+    ports:
+      - 80:80
+    networks:
+      my_net:
+        ipv4_address: 172.16.0.2
+  web:
+    image: my-web
+    volumes_from:
+      - cms
+    ports:
+      - 800:80
+    networks:
+      my_net:
+        ipv4_address: 172.16.0.3
+  cms:
+    image: my-cms
+    volumes:
+      - ./session:/var/tmp/session
+    ports:
+      - 900:80
+    networks:
+      my_net:
+        ipv4_address: 172.16.0.4
+networks:
+  my_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.16.0.0/24
