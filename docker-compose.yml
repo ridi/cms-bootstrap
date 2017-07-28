@@ -25,6 +25,8 @@ services:
         ipv4_address: 172.16.0.4
   couchbase:
     image: couchbase:latest
+    volumes:
+      - ./couchbase:/opt/couchbase/var
     ports:
       - 8091-8094:8091-8094
       - 11207:11207

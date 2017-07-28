@@ -7,7 +7,9 @@
 
 1. `make build`
 2. `docker-compose up`
-3. `open http://admin.dev.ridi.com`
+3. Configure Couchbase at http://admin.dev.ridi.com:8091. And create `session` bucket. 
+- See https://developer.couchbase.com/documentation/server/4.5/install/init-setup.html
+4. `open http://admin.dev.ridi.com`
 
 ### Clean up
 
@@ -18,4 +20,4 @@
 - [ ] Delete untagged docker images.
 - [ ] Fix check_config.sh to work with docker image.
 - [ ] Replace cms-admin with ridibooks/cms-admin.
-- [ ] Use a preset for couchbase.
+- [ ] Make a preset for Couchbase to simplify the configuration.
