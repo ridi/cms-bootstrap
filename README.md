@@ -19,5 +19,4 @@
 ## TODO
 - [ ] Delete untagged docker images.
 - [ ] Fix check_config.sh to work with docker image.
-- [ ] Replace cms-admin with ridibooks/cms-admin.
 - [ ] Make a preset for Couchbase to simplify the configuration.
