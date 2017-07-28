@@ -38,7 +38,6 @@ RUN a2enmod rewrite \
 EXPOSE 80
 
 ADD store/ /var/www/html/
-#ADD .env.cms /var/www/html/admin/cms/.env
 ADD .env.cms-admin /var/www/html/admin/cms-admin/.env
 ADD php.ini /usr/local/etc/php/php.ini
 

@@ -9,10 +9,8 @@ services:
     networks:
       my_net:
         ipv4_address: 172.16.0.2
-  web:
-    image: my-web
-    volumes_from:
-      - cms
+  admin:
+    image: my-cms-admin
     ports:
       - 800:80
     networks:
@@ -20,13 +18,21 @@ services:
         ipv4_address: 172.16.0.3
   cms:
     image: my-cms
-    volumes:
-      - ./session:/var/tmp/session
     ports:
       - 900:80
     networks:
       my_net:
         ipv4_address: 172.16.0.4
+  couchbase:
+    image: couchbase:latest
+    ports:
+      - 8091-8094:8091-8094
+      - 11207:11207
+      - 11210:11210
+      - 11211:11211
+    networks:
+      my_net:
+        ipv4_address: 172.16.0.5
 networks:
   my_net:
     driver: bridge

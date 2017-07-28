@@ -1,4 +1,4 @@
-FROM ridibooks/cms
+FROM ridibooks/cms-admin
 COPY .env /var/www/html
 WORKDIR /var/www/html
 
