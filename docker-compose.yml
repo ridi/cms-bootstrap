@@ -10,14 +10,18 @@ services:
       my_net:
         ipv4_address: 172.16.0.2
   admin:
-    image: my-cms-admin
+    image: ridibooks/cms-admin
+    volumes:
+      - ./cms-admin/config:/var/cms-admin
     ports:
       - 800:80
     networks:
       my_net:
         ipv4_address: 172.16.0.3
   cms:
-    image: my-cms
+    image: ridibooks/cms
+    volumes:
+      - ./cms/config:/var/cms
     ports:
       - 900:80
     networks:
