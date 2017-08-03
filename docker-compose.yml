@@ -70,12 +70,10 @@ networks:
   front-tier:
     driver: bridge
     ipam:
-      driver: default
       config:
       - subnet: 172.16.0.0/24
   back-tier:
     driver: bridge
     ipam:
-      driver: default
       config:
       - subnet: 172.16.1.0/24
