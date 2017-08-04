@@ -1,4 +1,5 @@
 version: '2'
+
 services:
   haproxy:
     image: haproxy:1.7
@@ -7,26 +8,11 @@ services:
     ports:
       - 80:80
     networks:
-      my_net:
-        ipv4_address: 172.16.0.2
-  admin:
-    image: ridibooks/cms-admin
-    volumes:
-      - ./cms-admin/config:/var/cms-admin
-    ports:
-      - 800:80
-    networks:
-      my_net:
-        ipv4_address: 172.16.0.3
-  cms:
-    image: ridibooks/cms
-    volumes:
-      - ./cms/config:/var/cms
-    ports:
-      - 900:80
-    networks:
-      my_net:
-        ipv4_address: 172.16.0.4
+      front-tier:
+        aliases:
+          - haproxy
+      back-tier:
+
   couchbase:
     image: couchbase:latest
     volumes:
@@ -37,12 +23,57 @@ services:
       - 11210:11210
       - 11211:11211
     networks:
-      my_net:
-        ipv4_address: 172.16.0.5
+      back-tier:
+        aliases:
+          - couchbase
+
+  main:
+    image: ridibooks/cms:latest
+    ports:
+      - 800:80
+    env_file:
+      - cms/.env
+    networks:
+      back-tier:
+        aliases:
+          - cms_main
+
+  admin:
+    build: ./cms-admin
+    image: ridibooks/cms-admin
+    environment:
+      APACHE_DOC_ROOT: /var/www/html
+    env_file:
+      - cms-admin/.env
+    ports:
+      - 801:80
+    networks:
+      back-tier:
+        aliases:
+          - cms_admin
+
+  example:
+    image: ridibooks/performance-apache-base:latest
+    volumes:
+      - ./example:/var/www/html
+    environment:
+      APACHE_DOC_ROOT: /var/www/html/web
+      XDEBUG_ENABLE: 1
+    ports:
+      - 802:80
+    networks:
+      back-tier:
+        aliases:
+          - cms_example
+
 networks:
-  my_net:
+  front-tier:
     driver: bridge
     ipam:
-      driver: default
       config:
       - subnet: 172.16.0.0/24
+  back-tier:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 172.16.1.0/24
