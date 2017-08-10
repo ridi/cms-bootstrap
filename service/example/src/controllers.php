@@ -1,7 +1,7 @@
 
 <?php
 
-use Ridibooks\Cms\Helloworld\Controller\MyController;
+use Ridibooks\Cms\Example\Controller\MyController;
 use Ridibooks\Platform\Cms\CmsApplication;
 use Ridibooks\Platform\Cms\MiniRouter;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,4 +17,4 @@ $app->get('/example/home', function (CmsApplication $app) {
     ]);
 });
 
-$app->mount('/example/foo', new MyController());
+$app->mount('/example', new MyController());

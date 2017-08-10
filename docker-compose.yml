@@ -4,7 +4,7 @@ services:
   haproxy:
     image: haproxy:1.7
     volumes:
-      - ./haproxy/config:/usr/local/etc/haproxy
+      - ./service/haproxy/config:/usr/local/etc/haproxy
     ports:
       - 80:80
     networks:
@@ -16,12 +16,13 @@ services:
   couchbase:
     image: couchbase:latest
     volumes:
-      - ./couchbase:/opt/couchbase/var
+      - ./service/couchbase:/opt/couchbase/var
     ports:
       - 8091-8094:8091-8094
       - 11207:11207
       - 11210:11210
       - 11211:11211
+    entrypoint: /opt/couchbase/var/entrypoint.sh
     networks:
       back-tier:
         aliases:
@@ -30,23 +31,20 @@ services:
   main:
     image: ridibooks/cms:latest
     ports:
-      - 800:80
+      - 0:80
     env_file:
-      - cms/.env
+      - ./service/cms/.env
     networks:
       back-tier:
         aliases:
           - cms_main
 
   admin:
-    build: ./cms-admin
-    image: ridibooks/cms-admin
-    environment:
-      APACHE_DOC_ROOT: /var/www/html
-    env_file:
-      - cms-admin/.env
+    image: ridibooks/cms-admin:latest
     ports:
-      - 801:80
+      - 0:80
+    env_file:
+      - ./service/cms-admin/.env
     networks:
       back-tier:
         aliases:
@@ -55,12 +53,12 @@ services:
   example:
     image: ridibooks/performance-apache-base:latest
     volumes:
-      - ./example:/var/www/html
+      - ./service/example:/var/www/html
     environment:
       APACHE_DOC_ROOT: /var/www/html/web
       XDEBUG_ENABLE: 1
     ports:
-      - 802:80
+      - 0:80
     networks:
       back-tier:
         aliases:
