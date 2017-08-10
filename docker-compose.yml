@@ -28,6 +28,23 @@ services:
         aliases:
           - couchbase
 
+  mariadb:
+    image: mariadb:10.3
+    volumes:
+      - ./service/mariadb/data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ridi
+      MYSQL_USER: ridi
+      MYSQL_PASSWORD: ridi
+      MYSQL_DATABASE: cms
+    networks:
+      front-tier:
+      back-tier:
+        aliases:
+          - mariadb
+
   main:
     image: ridibooks/cms:latest
     ports:
