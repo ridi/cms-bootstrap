@@ -1,3 +1,3 @@
-service/couchbase/lib
-service/mariadb/data
+docker/couchbase/lib
+docker/mariadb/data
 vendor

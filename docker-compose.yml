@@ -4,7 +4,7 @@ services:
   haproxy:
     image: haproxy:1.7
     volumes:
-      - ./service/haproxy/config:/usr/local/etc/haproxy
+      - ./docker/haproxy/config:/usr/local/etc/haproxy
     ports:
       - 80:80
     networks:
@@ -16,7 +16,7 @@ services:
   couchbase:
     image: couchbase:latest
     volumes:
-      - ./service/couchbase:/opt/couchbase/var
+      - ./docker/couchbase:/opt/couchbase/var
     ports:
       - 8091-8094:8091-8094
       - 11207:11207
@@ -31,7 +31,7 @@ services:
   mariadb:
     image: mariadb:10.3
     volumes:
-      - ./service/mariadb/data:/var/lib/mysql
+      - ./docker/mariadb/data:/var/lib/mysql
     ports:
       - 3306:3306
     environment:
@@ -40,7 +40,6 @@ services:
       MYSQL_PASSWORD: ridi
       MYSQL_DATABASE: cms
     networks:
-      front-tier:
       back-tier:
         aliases:
           - mariadb
@@ -50,7 +49,7 @@ services:
     ports:
       - 0:80
     env_file:
-      - ./service/cms/.env
+      - ./docker/cms/.env
     networks:
       back-tier:
         aliases:
@@ -61,7 +60,7 @@ services:
     ports:
       - 0:80
     env_file:
-      - ./service/cms-admin/.env
+      - ./docker/cms-admin/.env
     networks:
       back-tier:
         aliases:
@@ -70,7 +69,7 @@ services:
   example:
     image: ridibooks/performance-apache-base:latest
     volumes:
-      - ./service/example:/var/www/html
+      - .:/var/www/html
     environment:
       APACHE_DOC_ROOT: /var/www/html/web
       XDEBUG_ENABLE: 1

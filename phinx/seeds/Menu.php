@@ -2,33 +2,9 @@
 
 use Phinx\Seed\AbstractSeed;
 
-class Cms extends AbstractSeed
+class Menu extends AbstractSeed
 {
     public function run()
-    {
-        $this->createUsers();
-        $this->createMenus();
-    }
-
-    public function createUsers()
-    {
-        $data = [
-            [
-                'id' => 'admin',
-                'name' => '관리자',
-                'passwd' => '',
-                'team' => '관리자',
-                'is_use' => 1,
-                'reg_date' => date('Y-m-d H:i:s'),
-                'azure_id' => 'admin',
-            ],
-        ];
-
-        $posts = $this->table('tb_admin2_user');
-        $posts->insert($data)->save();
-    }
-
-    public function createMenus()
     {
         $data = [
             [
@@ -126,5 +102,4 @@ class Cms extends AbstractSeed
         $posts = $this->table('tb_admin2_menu');
         $posts->insert($data)->save();
     }
-
 }
