@@ -1,1 +1,3 @@
-couchbase
+service/couchbase/lib
+service/mariadb/data
+vendor
