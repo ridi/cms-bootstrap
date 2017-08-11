@@ -11,7 +11,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Ridibooks\\Cms\\Helloworld\\": "src"
+      "Ridibooks\\Cms\\Example\\": "src"
     }
   }
 }

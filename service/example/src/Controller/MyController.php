@@ -1,6 +1,6 @@
 <?php
 
-namespace Ridibooks\Cms\Helloworld\Controller;
+namespace Ridibooks\Cms\Example\Controller;
 
 use Ridibooks\Platform\Cms\CmsApplication;
 use Silex\Api\ControllerProviderInterface;

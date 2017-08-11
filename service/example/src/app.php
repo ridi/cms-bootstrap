@@ -4,7 +4,7 @@ use Ridibooks\Cms\Thrift\ThriftService;
 use Ridibooks\Platform\Cms\Auth\LoginService;
 use Ridibooks\Platform\Cms\CmsApplication;
 
-require_once __DIR__ . "/../vendor/autoload.php";
+$autoloader = require_once __DIR__ . "/../vendor/autoload.php";
 
 // Load a env file.
 if (is_readable(__DIR__ . '/../.env')) {
