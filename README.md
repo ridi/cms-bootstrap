@@ -58,8 +58,8 @@ You can make up local dev environment using [Docker Compose](https://docs.docker
       MYSQL_PASSWORD=yourpassword
       MYSQL_DATABASE=yourdb
       ```
-1. (optional) Build the example. 
-  - `composer install -d service/example`
+1. Build the skeleton codes. 
+  - `composer install`
 1. Open `http://admin.dev.ridi.com`
 1. Clean up after all.
   - `docker-compose down`.
