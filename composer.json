@@ -1,9 +1,21 @@
 {
   "name": "ridibooks/cms-bootstrap",
   "description": "RIDI CMS bootstrap project",
+  "type": "project",
   "license": "MIT",
   "require": {
+    "illuminate/database": "^5.2",
+    "ridibooks/cms-sdk": "^1.0.0",
+    "silex/silex": "^2.0",
+    "twig/twig": "^2.0.0",
+    "vlucas/phpdotenv": "^2.4"
+  },
+  "require-dev": {
     "robmorgan/phinx": "^0.8.1"
   },
-  "type": "project"
+  "autoload": {
+    "psr-4": {
+      "Ridibooks\\Cms\\Example\\": "src"
+    }
+  }
 }

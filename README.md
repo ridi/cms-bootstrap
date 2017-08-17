@@ -1,40 +1,50 @@
 ## Overview
-It helps building local dev environment of RIDI CMS using `docker-compose`.
-See [docker-compose.yml](docker-compose.yml) for detail.
-
-
-## Prerequisites
-1. docker ([install](https://docs.docker.com/engine/installation))
-2. docker-compose ([install](https://docs.docker.com/compose/install))
-3. composer
+This is the skeleton project of RIDI CMS service.
+You can use this for your new applications.
 
 ## Install
+Use [Composer](https://getcomposer.org) to create of a new project:
 ```
-composer create-project ridibooks/cms-bootstrap <SET-PROJECT-NAME>
+composer create-project ridibooks/cms-bootstrap path/to/your/project
 ```
 
-
-## Usage
+## Structure
 ```
-cms-sdk
-├──service
+cms-bootstrap
+│
+├──src
+│   └── Controller
+│        └── ( .. Routers )
+├──view
+│   └── ( .. twigs ) 
+├──web
+│   └── index.php
+│
+├──.env   ─> Environment variables. Dotenv loads this. (See index.php)
+│ 
+├──phinx  ─> Phinx resources.
+│
+├──docker
 │   ├── cms
-│   │    └── .env
-│   │         └────> Edit DB endpoint on here.
-│   ├── cms-admin
-│   ├── example ───> This is a service for example.
+│   │    └── .env   ┬> Set DB endpoint on these.
+│   ├── cms-admin   │
+│   │    └── .env   ┘
 │   ├── couchbase
 │   ├── mariadb
 │   └── haproxy
 │        └── config
-│             └──haproxy.cfg ─┐ 
-├──docker-compose.yml ────────┴─> Edit these files to add a service.
+│             └──haproxy.cfg  ┐ 
+│                             │
+├──docker-compose.yml  ───────┴> Edit these if you need to add more contaners.
+│
 ...
 ```
 
 
-## Quick Start
-1. Assume that you set an alias `admin.dev.ridi.com` for localhost. (For example, write it to /etc/hosts)
+## Run with Docker Compose
+You can make up local dev environment using [Docker Compose](https://docs.docker.com/compose/install). Follow the steps below.
+
+1. Set an alias `admin.dev.ridi.com` for localhost. (For example, write it to /etc/hosts)
 1. Run docker-compose.
   - `docker-compose up`
 1. Set Database.
@@ -48,11 +58,8 @@ cms-sdk
       MYSQL_PASSWORD=yourpassword
       MYSQL_DATABASE=yourdb
       ```
-1. (optional) Build the example. 
-  - `composer install -d service/example`
+1. Build the skeleton codes. 
+  - `composer install`
 1. Open `http://admin.dev.ridi.com`
 1. Clean up after all.
   - `docker-compose down`.
-
-
-## How to add your web app
