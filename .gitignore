@@ -1,3 +1,5 @@
 docker/couchbase/lib
 docker/mariadb/data
+node_modules
+src/js/dist
 vendor

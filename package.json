@@ -1,0 +1,30 @@
+{
+  "name": "@ridibooks/cms-bootstrap",
+  "version": "1.0.0",
+  "description": "The example of CMS Node.js Application",
+  "author": "Kang Ki Tae <kt.kang@ridi.com>",
+  "main": "src/js/lib/server.js",
+  "scripts": {
+    "start": "nodemon src/js/lib/server.js --exec babel-node",
+    "build": "babel src/js/lib -d src/js/dist",
+    "serve": "node src/js/dist/server.js"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "connect-couchbase": "^0.2.10",
+    "couchbase": "^2.4.1",
+    "express": "^4.13.3",
+    "express-session": "^1.15.6",
+    "nodemon": "^1.12.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "devDependencies": {
+    "babel-loader": "^7.1.2",
+    "css-loader": "^0.28.7",
+    "style-loader": "^0.19.0",
+    "url-loader": "^0.6.2"
+  }
+}

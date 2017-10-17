@@ -5,7 +5,7 @@
   "license": "MIT",
   "require": {
     "illuminate/database": "^5.2",
-    "ridibooks/cms-sdk": "^1.0.0",
+    "ridibooks/cms-sdk": "dev-master#01accf8575a9b8bd078662d13cc1b9b2b7c829d9",
     "silex/silex": "^2.0",
     "twig/twig": "^2.0.0",
     "vlucas/phpdotenv": "^2.4"
@@ -15,7 +15,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Ridibooks\\Cms\\Example\\": "src"
+      "Ridibooks\\Cms\\Example\\": "src/php"
     }
   }
 }

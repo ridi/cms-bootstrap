@@ -66,19 +66,34 @@ services:
         aliases:
           - cms_admin
 
-  example:
+  example_php:
     image: ridibooks/performance-apache-base:latest
     volumes:
       - .:/var/www/html
     environment:
-      APACHE_DOC_ROOT: /var/www/html/web
+      APACHE_DOC_ROOT: /var/www/html/web/php
       XDEBUG_ENABLE: 1
     ports:
       - 0:80
     networks:
       back-tier:
         aliases:
-          - cms_example
+          - cms_example_php
+  
+  example_js:
+    image: node:8.6
+    volumes:
+      - /Users/imkkt/perf/cms:/app/cms
+    environment:
+      NODE_ENV: production
+    ports:
+      - 0:80
+    working_dir: /app/cms/cms-bootstrap
+    command: npm start
+    networks:
+      back-tier:
+        aliases:
+          - cms_example_js
 
 networks:
   front-tier:

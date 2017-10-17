@@ -19,7 +19,7 @@ class Menu extends AbstractSeed
             ],
             [
                 'menu_title' => '메뉴',
-                'menu_url' => '/example/home',
+                'menu_url' => '/example/php/home',
                 'menu_order' => 1,
                 'menu_deep' => 1,
                 'is_use' => 1,
@@ -29,7 +29,7 @@ class Menu extends AbstractSeed
             ],
             [
                 'menu_title' => '링크1',
-                'menu_url' => '/example/resource1',
+                'menu_url' => '/example/php/resource1',
                 'menu_order' => 2,
                 'menu_deep' => 1,
                 'is_use' => 1,
@@ -39,7 +39,7 @@ class Menu extends AbstractSeed
             ],
             [
                 'menu_title' => '링크2',
-                'menu_url' => '/example/resource2',
+                'menu_url' => '/example/php/resource2',
                 'menu_order' => 3,
                 'menu_deep' => 1,
                 'is_use' => 1,
