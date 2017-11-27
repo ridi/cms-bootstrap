@@ -1,3 +1,6 @@
+# CMS-Bootstrap
+[![Packagist](https://img.shields.io/packagist/v/ridibooks/cms-bootstrap.svg)](https://packagist.org/packages/ridibooks/cms-bootstrap)
+
 ## Overview
 This is the skeleton project of RIDI CMS service.
 You can use this for your new applications.
