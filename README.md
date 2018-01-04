@@ -8,7 +8,7 @@ You can use this for your new applications.
 ## Install
 Use [Composer](https://getcomposer.org) to create of a new project:
 ```
-composer create-project ridi/cms-bootstrap path/to/your/project
+composer create-project ridibooks/cms-bootstrap path/to/your/project
 ```
 
 ## Structure
