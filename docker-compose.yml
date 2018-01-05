@@ -14,7 +14,7 @@ services:
       back-tier:
 
   couchbase:
-    image: couchbase:latest
+    image: couchbase:4.6.3
     volumes:
       - ./docker/couchbase:/opt/couchbase/var
     ports:
