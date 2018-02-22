@@ -1,9 +1,10 @@
 
 <?php
 
+use Ridibooks\Cms\Auth\LoginService;
 use Ridibooks\Cms\Example\Controller\MyController;
-use Ridibooks\Platform\Cms\CmsApplication;
-use Ridibooks\Platform\Cms\MiniRouter;
+use Ridibooks\Cms\CmsApplication;
+use Ridibooks\Cms\MiniRouter;
 use Symfony\Component\HttpFoundation\Request;
 
 // Check an auth.
@@ -13,7 +14,7 @@ $app->before(function (Request $request) {
 
 $app->get('/example/home', function (CmsApplication $app) {
     return $app['twig']->render('home.twig', [
-        'name' => $_SESSION['session_admin_id']
+        'name' => LoginService::GetAdminID()
     ]);
 });
 

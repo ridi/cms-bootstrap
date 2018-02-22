@@ -2,7 +2,7 @@
 
 namespace Ridibooks\Cms\Example\Controller;
 
-use Ridibooks\Platform\Cms\CmsApplication;
+use Ridibooks\Cms\CmsApplication;
 use Silex\Api\ControllerProviderInterface;
 use Silex\Application;
 
