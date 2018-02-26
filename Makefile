@@ -7,7 +7,7 @@ install:
 	composer install
 
 run:
-	php -S localhost:8080 -t web
+	php -S 127.0.0.1:8080 -t web
 
 cms-up:
 	make -C cms up
