@@ -11,11 +11,6 @@ if (is_readable(__DIR__ . '/../.env')) {
     $dotenv->load();
 }
 
-// Set rpc endpoint.
-if (!empty($_ENV['CMS_RPC_URL'])) {
-    ThriftService::setEndPoint($_ENV['CMS_RPC_URL']);
-}
-
 $config = [
     'twig.path' => [__DIR__ . '/../view/'],
     'debug' => $_ENV['DEBUG'],
@@ -23,6 +18,10 @@ $config = [
         'STATIC_URL' => '/static',
         'BOWER_PATH' => '/static/bower_components',
     ],
+    'thrift.rpc_url' => $_ENV['CMS_RPC_URL'],
+    'auth.cf_access_domain' => $_ENV['CF_ACCESS_DOMAIN'] ?? '',
+    'auth.cf_audience_tag' => $_ENV['CF_AUDIENCE_TAG'] ?? '',
+    'auth.test_id' => $_ENV['CMS_TEST_ID'] ?? '',
 ];
 
 $app = new CmsApplication($config);
