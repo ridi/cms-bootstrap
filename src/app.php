@@ -16,10 +16,16 @@ if (!empty($_ENV['CMS_RPC_URL'])) {
     ThriftService::setEndPoint($_ENV['CMS_RPC_URL']);
 }
 
-$app = new CmsApplication();
+$config = [
+    'twig.path' => [__DIR__ . '/../view/'],
+    'debug' => $_ENV['DEBUG'],
+    'twig.globals' => [
+        'STATIC_URL' => '/static',
+        'BOWER_PATH' => '/static/bower_components',
+    ],
+];
+
+$app = new CmsApplication($config);
 
 // Add some Silex service providers you need here.
-
-$app['debug'] = $_ENV['DEBUG'];
-$app['twig.path'] = __DIR__ . '/../view/';
 return $app;
