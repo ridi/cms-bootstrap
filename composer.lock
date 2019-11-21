@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eb6bc5d4ddaf7ce122967cb5277ff94a",
+    "content-hash": "b4f06dba7cfadf2a67d23345d0dd39ce",
     "packages": [
         {
             "name": "apache/thrift",
@@ -653,11 +653,16 @@
         {
             "name": "ridibooks/cms-sdk",
             "version": "3.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ridi/cms-sdk.git",
+                "reference": "bf16cf78798cd2c4227631299232e92eb2fc5463"
+            },
             "dist": {
-                "type": "path",
-                "url": "../cms-local/cms-sdk",
-                "reference": "f78fbe9a1aba90d78a8be304a68b7115d458d3fe",
-                "shasum": null
+                "type": "zip",
+                "url": "https://api.github.com/repos/ridi/cms-sdk/zipball/bf16cf78798cd2c4227631299232e92eb2fc5463",
+                "reference": "bf16cf78798cd2c4227631299232e92eb2fc5463",
+                "shasum": ""
             },
             "require": {
                 "apache/thrift": "^0.10.0",
@@ -674,15 +679,12 @@
                     "Ridibooks\\Cms\\": "lib/php/src"
                 }
             },
-            "scripts": {
-                "test": [
-                    "phpunit lib/php"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-            "description": "Ridibooks CMS SDK"
+            "description": "Ridibooks CMS SDK",
+            "time": "2019-11-20T11:13:47+00:00"
         },
         {
             "name": "silex/silex",

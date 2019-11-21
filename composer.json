@@ -5,7 +5,7 @@
   "license": "MIT",
   "require": {
     "illuminate/database": "^5.2",
-    "ridibooks/cms-sdk": "@dev",
+    "ridibooks/cms-sdk": "3.x-dev",
     "silex/silex": "^2.0",
     "twig/twig": "^2.0.0",
     "vlucas/phpdotenv": "^2.4"
@@ -17,11 +17,5 @@
     "psr-4": {
       "Ridibooks\\Cms\\Example\\": "src"
     }
-  },
-  "repositories": [
-    {
-      "type": "path",
-      "url": "../cms-local/cms-sdk"
-    }
-  ]
+  }
 }
