@@ -656,12 +656,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ridi/cms-sdk.git",
-                "reference": "bf16cf78798cd2c4227631299232e92eb2fc5463"
+                "reference": "4f0e0ebf7cc2b626f45fb690e3ecf1944b1a0525"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ridi/cms-sdk/zipball/bf16cf78798cd2c4227631299232e92eb2fc5463",
-                "reference": "bf16cf78798cd2c4227631299232e92eb2fc5463",
+                "url": "https://api.github.com/repos/ridi/cms-sdk/zipball/4f0e0ebf7cc2b626f45fb690e3ecf1944b1a0525",
+                "reference": "4f0e0ebf7cc2b626f45fb690e3ecf1944b1a0525",
                 "shasum": ""
             },
             "require": {
@@ -684,7 +684,7 @@
                 "MIT"
             ],
             "description": "Ridibooks CMS SDK",
-            "time": "2019-11-20T11:13:47+00:00"
+            "time": "2020-03-02T02:19:57+00:00"
         },
         {
             "name": "silex/silex",
