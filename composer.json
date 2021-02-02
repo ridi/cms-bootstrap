@@ -4,7 +4,7 @@
   "type": "project",
   "license": "MIT",
   "require": {
-    "illuminate/database": "^5.2",
+    "illuminate/database": "^6.20",
     "ridibooks/cms-sdk": "3.x-dev",
     "silex/silex": "^2.0",
     "twig/twig": "^2.0.0",
